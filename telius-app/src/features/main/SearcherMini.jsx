@@ -1,31 +1,20 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import { Center, Grid, GridItem, Text } from "@chakra-ui/react";
-import { Container } from "@chakra-ui/react";
-import { Input } from "@chakra-ui/react";
-import { Divider } from "@chakra-ui/react";
-import { IconButton } from "@chakra-ui/react";
+import { Center, Container, Divider, Grid, GridItem, IconButton, Input } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 
-const InputItem = ({ colSpan, placeholder, title }) => (
-    <GridItem colSpan={colSpan}>
-        <Grid h="100%" templateRows="repeat(2, 0fr)">
-            <GridItem rowSpan={1}>
-                <Text fontSize="sm" fontWeight="bold" fontFamily="Varela Round" textOverflow='ellipsis'>
-                    {title}
-                </Text>
-            </GridItem>
-            <GridItem rowSpan={1}>
-                <Input
-                    textOverflow='ellipsis'
-                    placeholder={placeholder}
-                    border="none"
-                    fontFamily="Varela Round"
-                    paddingLeft="0"
-                    paddingRight="0"
-                    variant="unstyled"
-                />
-            </GridItem>
-        </Grid>
+const InputItem = ({ colSpan, placeholder, value }) => (
+    <GridItem colSpan={colSpan} display='inherit'>
+        <Input
+            textOverflow='ellipsis'
+            placeholder={placeholder}
+            border="none"
+            fontFamily="Varela Round"
+            paddingLeft="0"
+            paddingRight="0"
+            variant="unstyled"
+            defaultValue={value}
+            fontWeight='bold'
+        />
     </GridItem>
 );
 
@@ -40,7 +29,6 @@ const DividerItem = () => (
 const SearchItem = () => {
     const history = useHistory()
     const handleClick = () => {
-        history.push('catalogo')
     }
     return (
         <GridItem colSpan={1}>
@@ -49,9 +37,7 @@ const SearchItem = () => {
                     color="white"
                     backgroundColor="#5993DC"
                     aria-label="Search database"
-                    boxSize="14"
-                    borderRadius="28"
-                    fontSize="28"
+                    borderRadius="2em"
                     border="none"
                     onClick={handleClick}
                     icon={<SearchIcon />}
@@ -61,33 +47,33 @@ const SearchItem = () => {
     );
 }
 
-export const Searcher = () => {
+export const SearcherMini = () => {
     return (
         <Container
-            height="100%"
             backgroundColor="white"
-            maxW="container.lg"
+            maxW="container.md"
             borderRadius="50px"
-            paddingLeft="30px"
-            paddingRight="30px"
+            borderWidth='1px'
+            borderStyle='solid'
+            borderColor='gray.300'
         >
             <Grid height="100%" templateColumns="repeat(15, 1fr)">
                 <InputItem
                     colSpan={4}
                     title="Materia o idioma"
-                    placeholder="Ej: Física, Inglés, etc."
+                    value="Ej: Física, Inglés, etc."
                 />
                 <DividerItem />
                 <InputItem
                     colSpan={4}
                     title="Ubicación"
-                    placeholder="Ej: Palermo, Buenos Aires"
+                    value="Ej: Palermo, Buenos Aires"
                 />
                 <DividerItem />
                 <InputItem
                     colSpan={4}
                     title="Horarios"
-                    placeholder="Ej: Lu, Ma, Mi - 14hs a 18hs"
+                    value="Ej: Lu, Ma, Mi - 14hs a 18hs - ..."
                 />
                 <SearchItem />
             </Grid>
@@ -95,4 +81,4 @@ export const Searcher = () => {
     );
 };
 
-export default Searcher;
+export default SearcherMini;

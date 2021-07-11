@@ -13,7 +13,7 @@ const translateYears = (years) =>
                 Number.isInteger(years) ? `${years} años` : `Más de ${Math.floor(years)} años`;
 
 const Detail = (props) => (
-    <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='sm'>
+    <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='sm' textOverflow='ellipsis'>
         {props.label}: <span style={{ color: "gray.600", fontWeight: 'normal' }}>{props.children}</span>
     </Text>
 );
@@ -22,7 +22,7 @@ const Ranking = ({ stars, opinions }) => (
     <HStack align='center' justify='center'>
         <Center>
             <StarIcon color={'red.500'} />
-            <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='sm'>
+            <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='sm' textOverflow='ellipsis'>
                 {stars.toLocaleString()}<span style={{ fontWeight: 'normal', color: 'gray' }}> ({opinions})</span>
             </Text>
         </Center>

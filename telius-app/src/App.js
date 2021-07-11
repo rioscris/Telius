@@ -1,7 +1,8 @@
 import { theme, ThemeProvider } from "@chakra-ui/react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Menu from "features/main/Menu";
 import Catalogue from "features/catalogue/Catalogue";
+import Layout from "features/layout/Layout";
+import Menu from "features/main/Menu";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 // Let's say you want to add custom colors
@@ -25,9 +26,11 @@ function App() {
                     <Route exact path='/'>
                         <Menu />
                     </Route>
-                    <Route exact path='/catalogo'>
-                        <Catalogue />
-                    </Route>
+                    <Layout>
+                        <Route exact path='/catalogo'>
+                            <Catalogue />
+                        </Route>
+                    </Layout>
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>
