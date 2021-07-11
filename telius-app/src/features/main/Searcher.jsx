@@ -4,6 +4,7 @@ import { Container } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
 
 const InputItem = ({ colSpan, placeholder, title }) => (
     <GridItem colSpan={colSpan}>
@@ -35,22 +36,29 @@ const DividerItem = () => (
     </GridItem>
 );
 
-const SearchItem = ({ onClick }) => (
-    <GridItem colSpan={1}>
-        <Center height="100%" width="100%">
-            <IconButton
-                color="white"
-                backgroundColor="#5993DC"
-                aria-label="Search database"
-                boxSize="14"
-                borderRadius="28"
-                fontSize="28"
-                border="none"
-                icon={<SearchIcon />}
-            />
-        </Center>
-    </GridItem>
-);
+const SearchItem = () => {
+    const history = useHistory()
+    const handleClick = () => {
+        history.push('catalogo')
+    }
+    return (
+        <GridItem colSpan={1}>
+            <Center height="100%" width="100%">
+                <IconButton
+                    color="white"
+                    backgroundColor="#5993DC"
+                    aria-label="Search database"
+                    boxSize="14"
+                    borderRadius="28"
+                    fontSize="28"
+                    border="none"
+                    onClick={handleClick}
+                    icon={<SearchIcon />}
+                />
+            </Center>
+        </GridItem>
+    );
+}
 
 export const Searcher = () => {
     return (

@@ -1,0 +1,11 @@
+.main {
+    background: /* top, transparent black, faked with gradient */
+    linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* bottom, image */
+    url("images/woman3.jpg");
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute
+}
