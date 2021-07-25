@@ -2,6 +2,7 @@ import { theme, ThemeProvider } from "@chakra-ui/react";
 import Catalogue from "features/catalogue/Catalogue";
 import Layout from "features/layout/Layout";
 import Menu from "features/main/Menu";
+import Scheduler from "features/scheduler/Scheduler";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -29,6 +30,9 @@ function App() {
                     <Layout>
                         <Route exact path='/catalogo'>
                             <Catalogue />
+                        </Route>
+                        <Route exact path='/schedule'>
+                            <Scheduler />
                         </Route>
                     </Layout>
                 </Switch>
