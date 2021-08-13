@@ -2,12 +2,12 @@
   "name": "telius-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
     "@chakra-ui/react": "^1.6.4",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@remotelock/react-week-scheduler": "latest",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -19,12 +19,15 @@
     "react-scripts": "4.0.3",
     "react-weekly-schedule": "0.0.0-development",
     "typescript": "^4.3.5",
-    "web-vitals": "^1.1.2"
+    "@remotelock/react-week-scheduler": "3.5.8",
+    "core-js": "latest",
+    "resize-observer-polyfill": "1.5.1",
+    "mousetrap": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,5 +47,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/invariant": "^2.2.34",
+    "@types/merge-ranges": "^1.0.0",
+    "@types/mousetrap": "^1.6.8",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.8",
+    "web-vitals": "^2.1.0"
   }
 }

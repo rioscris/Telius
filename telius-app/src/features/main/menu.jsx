@@ -1,12 +1,18 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, IconButton } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import TeliusLogo from "images/teliuslogo.png";
 import { Heading } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 import Searcher from "./Searcher";
+import { useHistory } from "react-router-dom";
 import "./main.css";
+import { CalendarIcon } from "@chakra-ui/icons";
 
 export const Menu = () => {
+  const history = useHistory()
+  const goToScheduler = () => {
+    history.push('schedule')
+  }
   return (
     <Box className="main">
       <Grid h="100px" templateColumns="repeat(7, 1fr)" gap={4}>
@@ -28,6 +34,21 @@ export const Menu = () => {
               Telius
             </Heading>
           </Center>
+        </GridItem>
+        <GridItem colSpan={1}>
+            <Center height="100%" width="100%">
+                <IconButton
+                    color="white"
+                    backgroundColor="#5993DC"
+                    aria-label="Search database"
+                    boxSize="14"
+                    borderRadius="28"
+                    fontSize="28"
+                    border="none"
+                    onClick={goToScheduler}
+                    icon={<CalendarIcon />}
+                />
+            </Center>
         </GridItem>
         <GridItem colSpan={7} rowSpan={5}>
           <Center height={"100%"} w="100%">

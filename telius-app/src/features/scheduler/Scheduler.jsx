@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import "resize-observer-polyfill/dist/ResizeObserver.global";
 import { TimeGridScheduler, classes } from "@remotelock/react-week-scheduler";
-import "@remotelock/react-week-scheduler/index.css";
- 
+import 'resize-observer-polyfill/dist/ResizeObserver.global';
+import '@remotelock/react-week-scheduler/index.css';
+
 const rangeStrings = [
   ["2019-03-03T22:45:00.000Z", "2019-03-04T01:15:00.000Z"],
   ["2019-03-04T22:15:00.000Z", "2019-03-05T01:00:00.000Z"],
