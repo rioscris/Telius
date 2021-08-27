@@ -21,23 +21,23 @@ const customTheme = {
 
 function App() {
     return (
-        <ThemeProvider theme={customTheme}>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/'>
-                        <Menu />
-                    </Route>
-                    <Layout>
-                        <Route exact path='/catalogo'>
-                            <Catalogue />
-                        </Route>
-                        <Route exact path='/schedule'>
+        // <ThemeProvider theme={customTheme}>
+        //     <BrowserRouter>
+        //         <Switch>
+        //             <Route exact path='/'>
+        //                 <Menu />
+        //             </Route>
+        //             <Layout>
+                        // <Route exact path='/catalogo'>
+                        //     <Catalogue />
+                        // </Route>
+                        // <Route exact path='/schedule'>
                             <Scheduler />
-                        </Route>
-                    </Layout>
-                </Switch>
-            </BrowserRouter>
-        </ThemeProvider>
+        //                 </Route>
+        //             </Layout>
+        //         </Switch>
+        //     </BrowserRouter>
+        // </ThemeProvider>
     );
 }
 
