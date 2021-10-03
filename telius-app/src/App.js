@@ -1,7 +1,7 @@
 import { theme, ThemeProvider } from "@chakra-ui/react";
 import Catalogue from "features/catalogue/Catalogue";
 import Layout from "features/layout/Layout";
-import Menu from "features/main/Menu";
+import Menu from "features/main/menu";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 

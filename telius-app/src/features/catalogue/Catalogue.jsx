@@ -1,8 +1,9 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Box, Center, Divider, Flex, Grid, GridItem, HStack, Icon, Image, Spacer, Text, VStack } from "@chakra-ui/react";
-import { professors } from "./professors";
+import Prereservation from "features/reservationModal/Prereservation";
+import React, { useState } from 'react';
 import { AiOutlineHeart } from "react-icons/ai/";
-
+import { professors } from "./professors";
 
 const list = (array, separator = '-') => array.map((item, ix) => `${item}${ix === array.length - 1 ? '' : ` ${separator} `}`);
 
@@ -12,13 +13,13 @@ const translateYears = (years) =>
             years === 1 ? '1 año' :
                 Number.isInteger(years) ? `${years} años` : `Más de ${Math.floor(years)} años`;
 
-const Detail = (props) => (
+export const Detail = (props) => (
     <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='sm' textOverflow='ellipsis'>
         {props.label}: <span style={{ color: "gray.600", fontWeight: 'normal' }}>{props.children}</span>
     </Text>
 );
 
-const Ranking = ({ stars, opinions }) => (
+export const Ranking = ({ stars, opinions }) => (
     <HStack align='center' justify='center'>
         <Center>
             <StarIcon color={'red.500'} />
@@ -29,7 +30,7 @@ const Ranking = ({ stars, opinions }) => (
     </HStack>
 )
 
-const Price = ({ hour, discount }) => (
+export const Price = ({ hour, discount }) => (
     <Box>
         <Text margin='0.5em' color="gray.600" fontFamily="Varela Round" fontWeight='bold' fontSize='md'>
             ${hour} <span style={{ fontWeight: 'normal', color: 'gray' }}>por hora</span>
@@ -41,17 +42,19 @@ const Price = ({ hour, discount }) => (
     </Box>
 )
 
-const Catalogue = (props) => {
+export const Catalogue = (props) => {
+    const [selected, setSelected] = useState();
+    const [openModal, setOpenModal] = useState(false);
     return (
         <Center height="100%" width="100%">
             <Box w='60%'>
                 <VStack spacing={8}>
                     {professors.map((professor, ix) =>
-                        <Box key={ix} marginTop='0!important' w='100%' backgroundColor='white' >
+                        <Box key={ix} marginTop='0!important' w='100%' backgroundColor='white' onClick={() => {setSelected(professor); setOpenModal(true)}}>
                             <Divider color="gray.400" />
                             <Grid templateColumns='repeat(6, 1fr)' gap={5}>
                                 <GridItem colSpan={2}>
-                                    <Box overflow='hidden' textAlign='center'>
+                                    <Box overflow='hidden' textAlign='center' >
                                         <Image src={professor.image} maxWidth='100%' height='200px' fit='contain' borderRadius='1em' />
                                     </Box>
                                 </GridItem>
@@ -76,7 +79,9 @@ const Catalogue = (props) => {
                             </Grid>
                         </Box>
                     )}
-                    <h1>aa</h1>
+                    {selected && 
+                        <Prereservation professor={selected} isOpen={openModal} onClose={() => setOpenModal(false)}/>
+                    }
                 </VStack>
             </Box>
         </Center >

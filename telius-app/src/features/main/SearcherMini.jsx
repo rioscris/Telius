@@ -1,6 +1,5 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import { Center, Container, Divider, Grid, GridItem, IconButton, Input } from "@chakra-ui/react";
-import { useHistory } from "react-router-dom";
 
 const InputItem = ({ colSpan, placeholder, value }) => (
     <GridItem colSpan={colSpan} display='inherit'>
@@ -27,7 +26,6 @@ const DividerItem = () => (
 );
 
 const SearchItem = () => {
-    const history = useHistory()
     const handleClick = () => {
     }
     return (
